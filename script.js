@@ -1,36 +1,38 @@
-
-
 const inputFieldEl = document.querySelector("#result");
 const buttonsEl = document.querySelectorAll("button");
-
-for(let i=0; i<buttonsEl.length; i++){
-    buttonsEl[i].addEventListener("click", ()=>{
+// const back = document.querySelector(".delete");
+// const clearAC = document.querySelector(".ac");
+// const tenglik = document.querySelectorAll(".equal")
+for (let i = 0; i < buttonsEl.length; i++) {
+    buttonsEl[i].addEventListener("click", () => {
         const val = buttonsEl[i].textContent;
-        if(val == "C"){
+        if (val == 'C') {
             clearInput();
         }
-        else if(val == "="){
+        else if (val == '=') {
             calcresult();
         }
-        else if(val == ".delete"){
+        else if (val == 'del') {
             backInputValue();
+
         }
-        else{
+        else {
             addedInputValue(val);
+
         }
     })
 
 }
 
-function clearInput(){
+function clearInput() {
     inputFieldEl.value = "";
 }
-function calcresult(){
+function calcresult() {
     inputFieldEl.value = eval(inputFieldEl.value);
 }
-function addedInputValue(val){
+function addedInputValue(val) {
     inputFieldEl.value = inputFieldEl.value + val;
 }
-function backInputValue(){
-    inputFieldEl.value = inputFieldEl.value.slice(0,-1);
+function backInputValue() {
+    inputFieldEl.value = inputFieldEl.value.slice(0, -1);
 }
